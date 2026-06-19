@@ -1,0 +1,27 @@
+{
+  "name": "@express-api-template/api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "projectType": "application",
+    "implicitDependencies": [
+      "@express-api-template/api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{workspaceRoot}/coverage/{e2eProjectRoot}"
+        ],
+        "dependsOn": [
+          "@express-api-template/api:build",
+          "@express-api-template/api:serve"
+        ],
+        "options": {
+          "jestConfig": "apps/api-e2e/jest.config.cts",
+          "passWithNoTests": true
+        }
+      }
+    }
+  }
+}
