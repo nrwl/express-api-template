@@ -9,19 +9,19 @@
     ],
     "targets": {
       "e2e": {
-        "executor": "@nx/jest:jest",
         "outputs": [
-          "{workspaceRoot}/coverage/{e2eProjectRoot}"
+          "{workspaceRoot}/coverage/{e2eProjectRoot}",
+          "{projectRoot}/test-output/jest/coverage"
         ],
         "dependsOn": [
           "@express-api-template/api:build",
           "@express-api-template/api:serve"
         ],
         "options": {
-          "jestConfig": "apps/api-e2e/jest.config.cts",
           "passWithNoTests": true
         }
       }
-    }
+    },
+    "// targets": "to see all targets run: nx show project @express-api-template/api-e2e --web"
   }
 }
