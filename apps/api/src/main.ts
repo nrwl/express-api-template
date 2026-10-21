@@ -1,3 +1,5 @@
+#!/usr/bin/env tsx
+// @nx-target-name: serve
 /**
  * Express API - entry point
  * Swap the in-memory store in controllers/ for a real DB to go production.

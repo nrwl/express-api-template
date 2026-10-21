@@ -30,17 +30,6 @@
       }
     },
     {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps",
-        "serveStaticTargetName": "serve-static"
-      }
-    },
-    {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
@@ -52,6 +41,28 @@
         "targetName": "test"
       },
       "exclude": ["apps/api-e2e/**/*"]
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "e2e"
+      },
+      "include": ["apps/api-e2e/**/*"]
+    },
+    "@nx/js/tsx",
+    {
+      "plugin": "@nx/js/typescript",
+      "include": ["apps/api/*"],
+      "options": {
+        "typecheck": false,
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.app.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps",
+          "skipBuildCheck": true
+        }
+      }
     }
   ],
   "targetDefaults": {
